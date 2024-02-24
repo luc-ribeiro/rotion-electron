@@ -1,13 +1,13 @@
-import { app, shell, BrowserWindow, ipcMain } from 'electron'
-import path, { join } from 'node:path'
+import { app, shell, BrowserWindow } from 'electron'
+import path from 'node:path'
 import { createFileRoute, createURLRoute } from 'electron-router-dom'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
-import icon from '../../resources/icon.png'
+
 import { createTray } from './tray'
+import { createShortcuts } from './shortcuts'
 
 import './ipc'
 import './store'
-import { createShortcuts } from './shortcuts'
 
 function createWindow(): void {
   const mainWindow = new BrowserWindow({
@@ -21,9 +21,13 @@ function createWindow(): void {
       x: 20,
       y: 20,
     },
-    ...(process.platform === 'linux' ? { icon } : {}),
+    ...(process.platform === 'linux'
+      ? {
+          icon: path.join(__dirname, '../../build/icon.png'),
+        }
+      : {}),
     webPreferences: {
-      preload: join(__dirname, '../preload/index.js'),
+      preload: path.join(__dirname, '../preload/index.js'),
       sandbox: false,
     },
   })
@@ -57,18 +61,16 @@ function createWindow(): void {
   }
 }
 
-app.whenReady().then(() => {
-  if (process.platform === 'darwin') {
-    app.dock.setIcon(path.resolve(__dirname, 'icon.png'))
-  }
+if (process.platform === 'darwin') {
+  app.dock.setIcon(path.resolve(__dirname, 'icon.png'))
+}
 
+app.whenReady().then(() => {
   electronApp.setAppUserModelId('com.electron')
 
   app.on('browser-window-created', (_, window) => {
     optimizer.watchWindowShortcuts(window)
   })
-
-  ipcMain.on('ping', () => console.log('pong'))
 
   createWindow()
 
