@@ -3,7 +3,7 @@
 </h1> 
 
 ## 📄 Sobre
-Projeto baseado no Notion, utilizando os melhores conceitos do Electron, tais como camadas como Renderer, Main, IPC, Preload e outros conceitos.
+Projeto baseado no Notion, utilizando os melhores conceitos do Electron, tais como camadas como Renderer, Main, IPC, Preload e outros.
 
 <br>
 
