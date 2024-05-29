@@ -2,8 +2,12 @@
   <img alt="project icon" title="icon" src="./resources/icon.png" height="100rem"  />
 </h1> 
 
-## 📄 Sobre
-Projeto baseado no Notion, utilizando os melhores conceitos do Electron, tais como camadas como Renderer, Main, IPC, Preload e outros.
+<div align="right">
+    Clique <a href="https://github.com/luc-ribeiro/rotion-electron/blob/main/README-PTBR.md">aqui</a> para ver a versão em Português.
+</div>
+
+## 📄 About
+This project is inspired by Notion, utilizing the best concepts of Electron, such as layers like Renderer, Main, IPC, Preload, and others.
 
 <br>
 
@@ -19,22 +23,22 @@ Projeto baseado no Notion, utilizando os melhores conceitos do Electron, tais co
 
 </br>
 
-## 🚀 Como executar
+## 🚀 How to Run
 
-Clone o projeto e acesse a pasta
+Clone the project and navigate to the folder
 
 ```bash
 $ git clone https://github.com/luc-ribeiro/rotion-electron.git
-$ cd 
+$ cd rotion-electron
 ```
 
-### Instalando
+### Installing
 
 ```bash
 $ npm install
 ```
 
-### Executando
+### Running
 
 ```bash
 $ npm run dev
@@ -42,11 +46,11 @@ $ npm run dev
 
 </br>
 
-A aplicação estará disponível no endereço `http://localhost:5173`
+The application will be available at `http://localhost:5173`
 
 <br>
 
-## 💻 Tecnologias
+## 💻 Technologies
 
 - Electron
 - React
